@@ -80,7 +80,7 @@ header {
 }
 
 .primary-button:hover {
-  background-color: #bb1717;
+  box-shadow: 0px 4px 28px -10px rgba(194, 43, 43, 1);
 }
 
 .header__social-links {
@@ -175,6 +175,7 @@ h2 {
 
 .section-title {
   text-align: center;
+  font-weight: 700;
   font-size: 36px;
 }
 
@@ -225,11 +226,49 @@ h2 {
     justify-content: space-between;
     gap: 80px;
     .s2__content-info-number {
-        display: block;
-        color: #dd2242;
-        font-size: 30px;
-        text-align: center;
-        margin-bottom: 15px;
+      display: block;
+      color: #dd2242;
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 15px;
     }
+  }
+}
+
+.section-4 {
+  position: relative;
+  height: 600px;
+  width: 100vw;
+  .s4-bottom-img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .s4-top-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.s4__content {
+  width: 450px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  h2 {
+    color: black;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  p {
+    text-align: center;
+    line-height: 32px;
+    margin-bottom: 20px;
+  }
+  .primary-button {
+    display: block;
+    margin: 0 auto;
   }
 }
