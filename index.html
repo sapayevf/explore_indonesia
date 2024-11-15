@@ -3,10 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <title>Explore Indonesia</title>
+    <link rel="stylesheet" href="./style/main.css" />
   </head>
-  <body>
+  <body style="font-family: 'DM Sans' !important">
     <main>
       <section class="function">
         <button
@@ -26,16 +37,69 @@
       <section class="section-1">
         <header>
           <div style="margin-left: 30px" class="header__content">
-            <img src="./assets/images/logo.svg" alt="" />
-            <nav>
-              <a href="">destinations</a>
-              <a href="">experiences</a>
-              <a href="">about</a>
-              <a href="">gallery</a>
+            <img class="header__logo" src="./assets/images/logo.svg" alt="" />
+            <nav class="header__nav">
+              <a href="#destinations">destinations</a>
+              <a href="#experiences">experiences</a>
+              <a href="#about1">about</a>
+              <a href="#gallery">gallery</a>
             </nav>
           </div>
-          <div style="margin-right: 100px" class="header__content">
-            <img src="./assets/icons/search.svg" alt="" />
+          <div style="margin-right: 30px" class="header__content">
+            <div>
+              <button
+                type="button"
+                class="btn border-0"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                <img src="./assets/icons/search.svg" alt="" />
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Search
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <input
+                        class="myInput"
+                        type="text"
+                        placeholder="Search..."
+                      />
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button type="button" class="btn btn-primary">
+                        Search
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <img src="./assets/icons/menu.svg" alt="" />
           </div>
         </header>
@@ -81,12 +145,12 @@
           </div>
         </div>
       </section>
-      <section class="section-2">
+      <section id="destinations" class="section-2">
         <div class="s2__content">
-          <div class="s2__content-img">
+          <div class="s2__content-img" data-aos="fade-right">
             <img width="500" src="./assets/images/s2-bgi-mountain.png" alt="" />
           </div>
-          <div class="s2__content-title">
+          <div class="s2__content-title" data-aos="fade-left">
             <h2>The walkways of Indonesia spellbind</h2>
             <p class="primary-text">
               Lorem ipsum dolor sit amet, consectetur adip iscing elit. Fusce
@@ -98,7 +162,7 @@
       </section>
       <section class="section-2 bgi">
         <div class="s2__content">
-          <div class="s2__content-title">
+          <div class="s2__content-title asd" data-aos="fade-right">
             <h2>Perfect beaches exude relaxation and fun</h2>
             <p class="primary-text">
               Lorem ipsum dolor sit amet, consectetur adip iscing elit. Fusce
@@ -106,32 +170,90 @@
             </p>
             <button class="primary-button">Learn More</button>
           </div>
-          <div class="s2__content-img">
+          <div class="s2__content-img" data-aos="fade-left">
             <img width="500" src="./assets/images/s2-bgi-sea.png" alt="" />
+          </div>
+          <div class="s2__content-title sct" data-aos="fade-right">
+            <h2>Perfect beaches exude relaxation and fun</h2>
+            <p class="primary-text">
+              Lorem ipsum dolor sit amet, consectetur adip iscing elit. Fusce
+              commodo magna et libero mollis rhoncus.
+            </p>
+            <button class="primary-button">Learn More</button>
           </div>
         </div>
       </section>
-      <section class="section-3">
-        <p class="section-title">Explore Our Secrets</p>
-        <div class="s3-carousel">
-          <img
-            style="transform: rotate(180deg)"
-            src="./assets/icons/Union.svg"
-            alt=""
-          />
-          <img width="350" src="./assets/images/s3-img1.png" alt="" />
-          <img width="350" src="./assets/images/s3-img2.png" alt="" />
-          <img width="350" src="./assets/images/s3-img3.png" alt="" />
-          <img src="./assets/icons/Union.svg" alt="" />
+      <section id="experiences" class="section-3">
+        <p class="section-title" data-aos="fade-down">Explore Our Secrets</p>
+        <div class="swiper mySwiper" data-aos="fade-up">
+          <div class="swiper-wrapper">
+            <img
+              width="200"
+              height="150"
+              class="swiper-slide"
+              src="./assets/images/s3-img2.png"
+              alt=""
+            />
+            <img
+              class="swiper-slide"
+              width="200"
+              height="150"
+              src="./assets/images/s3-img2.png"
+              alt=""
+            />
+            <img
+              class="swiper-slide"
+              width="200"
+              height="150"
+              src="./assets/images/s3-img2.png"
+              alt=""
+            />
+            <img
+              class="swiper-slide"
+              width="200"
+              height="150"
+              src="./assets/images/s3-img2.png"
+              alt=""
+            />
+            <img
+              class="swiper-slide"
+              width="200"
+              height="150"
+              src="./assets/images/s3-img2.png"
+              alt=""
+            />
+            <img
+              class="swiper-slide"
+              width="200"
+              height="150"
+              src="./assets/images/s3-img2.png"
+              alt=""
+            />
+            <img
+              class="swiper-slide"
+              width="200"
+              height="150"
+              src="./assets/images/s3-img2.png"
+              alt=""
+            />
+            <img
+              class="swiper-slide"
+              width="200"
+              height="150"
+              src="./assets/images/s3-img2.png"
+              alt=""
+            />
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-        <div class="s3__content">
-          <p class="section-title">By The Numbers</p>
-          <p class="primary-text">
+        <div id="about1" class="s3__content">
+          <p class="section-title" data-aos="fade-right">By The Numbers</p>
+          <p class="primary-text" data-aos="fade-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing <br />
             elit. Fusce commodo magna et libero.Lorem ipsum <br />
             dolor sit amet, consectetur adipiscing elit.
           </p>
-          <div class="s3__content-info">
+          <div class="s3__content-info" data-aos="fade-up">
             <div class="s3__content-info-item">
               <b class="s2__content-info-number">100+</b>
               <p class="primary-text">
@@ -180,20 +302,26 @@
         </div>
       </section>
       <section class="section-5">
-        <p class="section-title">
+        <p class="section-title" data-aos="fade-down">
           Live a life like you wouldn’t imagine, experience a <br />
           life you wouldn’t expect.
         </p>
         <img
           class="s4-video"
+          data-aos="fade-up"
           width="860"
           src="./assets/images/s4-video.png"
           alt=""
         />
         <div class="s5__content">
-          <div class="s5__content-item">
-            <img width="300" src="./assets/images/country.png" alt="" />
-            <div>
+          <div class="s5__content-item" data-aos="fade-right">
+            <img
+              class="s5__content-item-img"
+              width="300"
+              src="./assets/images/country.png"
+              alt=""
+            />
+            <div class="s5__content-item-title">
               <h3>In The Country</h3>
               <p class="primary-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -201,9 +329,14 @@
               </p>
             </div>
           </div>
-          <div class="s5__content-item">
-            <img width="300" src="./assets/images/city.png" alt="" />
-            <div>
+          <div class="s5__content-item" data-aos="fade-left">
+            <img
+              class="s5__content-item-img"
+              width="300"
+              src="./assets/images/city.png"
+              alt=""
+            />
+            <div class="s5__content-item-title">
               <h3>In The City</h3>
               <p class="primary-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -213,16 +346,53 @@
           </div>
         </div>
       </section>
-      <section class="section-6">
-        <p class="section-title">Photo Gallery</p>
-        <p class="primary-text">
+      <section id="gallery" class="section-6">
+        <p class="section-title" data-aos="fade-down">Photo Gallery</p>
+        <p class="primary-text" data-aos="fade-up">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
           Phasellus dapibus mauris in lectus tempus, eget tincidunt.
         </p>
-        <img width="900" src="./assets/images/s6-img.png" alt="" />
+        <div class="s6__images" data-aos="fade-down">
+          <img
+            width="270"
+            class="s6_image1"
+            src="./assets/icons/s6-img1.png"
+            alt=""
+          />
+          <img
+            width="270"
+            class="s6_image2"
+            src="./assets/icons/s6-img2.png"
+            alt=""
+          />
+          <img
+            width="270"
+            class="s6_image3"
+            src="./assets/icons/s6-img3.png"
+            alt=""
+          />
+          <img
+            width="270"
+            class="s6_image4"
+            src="./assets/icons/s6-img4.png"
+            alt=""
+          />
+          <img
+            width="270"
+            class="s6_image5"
+            src="./assets/icons/s6-img5.png"
+            alt=""
+          />
+          <img
+            width="270"
+            class="s6_image6"
+            src="./assets/icons/s6-img6.png"
+            alt=""
+          />
+        </div>
       </section>
       <section class="section-7">
-        <footer>
+        <footer class="footer1">
           <p class="section-title">Getting there</p>
           <div class="footer__item">
             <img src="./assets/icons/Number1.svg" alt="" />
@@ -248,7 +418,7 @@
                 faucibus malesuada. Praesent sed <br />
                 eros tincidunt, viverra neque auctor, lobortis enim.
               </p>
-              <div class="footer__item-title-content">
+              <div class="footer__item-title-content d-flex flex-wrap">
                 <img
                   width="230"
                   src="./assets/images/footer-video.png"
@@ -278,9 +448,38 @@
             </div>
           </div>
         </footer>
+        <footer class="footer2">
+          <div class="footer2__nav">
+            <img src="./assets/icons/footer_logo.svg" alt="" />
+            <div class="footer2__nav-item">
+              <a href="">about</a>
+              <a href="">pricing</a>
+              <a href="">company</a>
+              <a href="">blog</a>
+            </div>
+          </div>
+          <div class="footer2__social">
+            <div class="footer2__social-item">
+              <img src="./assets/icons/Facebook.svg" alt="" />
+              <img src="./assets/icons/Linkedin.png" alt="" />
+              <img src="./assets/icons/Google.svg" alt="" />
+            </div>
+            <p class="m-0">Copyright © 2019</p>
+          </div>
+        </footer>
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="./scripts/app.js"></script>
   </body>
 </html>

@@ -1,14 +1,14 @@
-@import url(./font.css);
-
+@import "./font.css";
+@import "./__mixin";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 body {
-  font-family: "DM Sans";
+  font-family: "DM Sans" !important;
   font-weight: 400;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -20,8 +20,7 @@ body {
   right: 40px;
   z-index: 99;
   border: none;
-  width: 50px;
-  height: 50px;
+  @include size-box(50px, 50px);
   background-color: transparent;
   padding: 0;
   cursor: pointer;
@@ -30,8 +29,7 @@ body {
 }
 
 .scrool-to-top img {
-  width: 100%;
-  height: 100%;
+  @include size-box(100%, 100%);
 }
 
 .show {
@@ -40,22 +38,18 @@ body {
 
 .section-1 {
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  font-family: "DM Sans" !important;
+  @include size-box(100vw, 100vh);
   background-image: url(../assets/images/s1-bgi.webp);
   background-size: cover;
   background-position: center;
 }
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex-box(flex, center, space-between);
   padding-top: 20px;
   .header__content {
-    display: flex;
-    align-items: center;
-    gap: 50px;
+    @include flex-box2(flex, center, 50px);
 
     nav {
       display: flex;
@@ -70,6 +64,12 @@ header {
         color: #1e0303;
       }
     }
+  }
+  .myInput {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.256);
+    width: 100%;
   }
 }
 
@@ -112,9 +112,7 @@ header {
 .header__social-links {
   position: absolute;
   bottom: 90px;
-  display: flex;
-  align-items: center;
-  gap: 30px;
+  @include flex-box2(flex, center, 30px);
   transform: rotate(-90deg);
   a {
     color: white;
@@ -128,9 +126,7 @@ header {
   right: 380px;
   width: 900px;
   background-color: rgba(0, 0, 0, 0.445);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-box(flex, center, center);
   padding: 30px;
   gap: 30px;
   .header__info-content {
@@ -164,9 +160,7 @@ header {
     url(../assets/images/s2-bgi-mountain.png);
   background-position: center;
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-box(flex, center, center);
 }
 
 h2 {
@@ -175,9 +169,7 @@ h2 {
 }
 
 .s2__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-box(flex, center, center);
   gap: 90px;
   margin: 0 300px;
   .s2__content-title {
@@ -218,17 +210,21 @@ h2 {
   .primary-text {
     margin-bottom: 40px;
   }
-  .s3-carousel {
-    margin: 0 auto;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    transition: all 0.4s ease;
-    img:hover {
-      transform: scale(1.1);
-      transition: all 0.4s ease;
-    }
+  .swiper {
+    @include size-box(80%, 220px);
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    @include flex-box(flex, center, center);
+  }
+
+  .swiper-slide img {
+    display: block;
+    @include size-box(100%, 100%);
+    object-fit: cover;
   }
 }
 
@@ -247,9 +243,7 @@ h2 {
     text-align: center;
   }
   .s3__content-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex-box(flex, center, space-between);
     gap: 80px;
     .s2__content-info-number {
       display: block;
@@ -263,8 +257,7 @@ h2 {
 
 .section-4 {
   position: relative;
-  height: 600px;
-  width: 100vw;
+  @include size-box(100vw, 600px);
   .s4-bottom-img {
     position: absolute;
     right: 0;
@@ -321,14 +314,10 @@ h2 {
   }
 
   .s5__content {
-    display: flex;
-    align-items: center;
+    @include flex-box2(flex, center, 50px);
     padding: 0 170px;
-    gap: 50px;
     .s5__content-item {
-      display: flex;
-      align-items: center;
-      gap: 25px;
+      @include flex-box2(flex, center, 25px);
       h3 {
         margin-bottom: 20px;
         color: white;
@@ -347,7 +336,7 @@ h2 {
   }
   .primary-text {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   img {
     display: block;
@@ -355,8 +344,44 @@ h2 {
   }
 }
 
+.s6__images {
+  @include size-box(70%, 600px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: repeat(7, 1fr); // 6 qator, har biri 1fr balandlikda
+  grid-template-columns: repeat(3, 1fr); // 3 ustun, har biri 1fr kenglikda
+  grid-template-areas:
+    "img1 img2 img3"
+    "img1 img2 img3"
+    "img1 img5 img3"
+    "img1 img5 img6"
+    "img4 img5 img6"
+    "img4 img5 img6";
+
+  .s6_image1 {
+    grid-area: img1;
+  }
+  .s6_image2 {
+    grid-area: img2;
+  }
+  .s6_image3 {
+    grid-area: img3;
+  }
+  .s6_image4 {
+    grid-area: img4;
+    margin-top: 62px;
+  }
+  .s6_image5 {
+    grid-area: img5;
+  }
+  .s6_image6 {
+    grid-area: img6;
+    margin-top: 30px;
+  }
+}
+
 .section-7 {
-  footer {
+  .footer1 {
     background-color: #dce8f2;
     padding: 70px 240px;
     padding-right: 350px;
@@ -365,9 +390,7 @@ h2 {
       margin-bottom: 30px;
     }
     .footer__item {
-      display: flex;
-      align-items: start;
-      gap: 40px;
+      @include flex-box2(flex, center, 40px);
       margin-bottom: 50px;
       h3 {
         margin-bottom: 15px;
@@ -377,14 +400,178 @@ h2 {
         line-height: 24px;
       }
       .footer__item-title-content {
-        display: flex;
-        align-items: center;
-        gap: 30px;
+        @include flex-box2(flex, center, 30px);
         margin-top: 50px;
         .primary-text {
           line-height: 32px;
         }
       }
     }
+  }
+  .footer2 {
+    padding: 25px 70px;
+    background-color: #010a20;
+    @include flex-box(flex, center, space-between);
+    .footer2__nav {
+      @include flex-box2(flex, center, 60px);
+    }
+  }
+  .footer2__nav-item {
+    @include flex-box2(flex, center, 30px);
+    a {
+      text-transform: capitalize;
+      color: white;
+      font-weight: 700;
+    }
+  }
+  .footer2__social {
+    @include flex-box2(flex, center, 50px);
+    p {
+      color: white;
+      font-weight: 700;
+    }
+    .footer2__social-item {
+      @include flex-box2(flex, center, 15px);
+    }
+  }
+}
+
+.sct {
+  display: none;
+}
+
+@media (max-width: 550px) {
+  .section-1 {
+    position: relative;
+    height: 160vh;
+  }
+  .header__content .header__nav {
+    display: none;
+  }
+  .header__tittle {
+    left: 30px;
+  }
+  .header__social-links {
+    display: none;
+  }
+  .header__img-beach {
+    display: none;
+  }
+  .primary-button {
+    width: 100%;
+  }
+  .header__info {
+    bottom: 30px;
+    left: 30px;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .s2__content {
+    margin: 0 !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    flex-direction: column;
+  }
+  .s2__content-img img {
+    width: 100% !important;
+  }
+  .asd {
+    display: none;
+  }
+  .sct {
+    display: block;
+  }
+  .section-3 .s3__content {
+    padding: 1px !important;
+    gap: 10px !important;
+  }
+  .s3__content-info {
+    flex-direction: column;
+  }
+  .s3__content:last-child {
+    padding-bottom: 30px !important;
+  }
+  .s3__content-info .primary-text {
+    padding-left: 110px !important;
+    padding-right: 110px !important;
+    margin-bottom: 0;
+  }
+  .section-5 {
+    height: 1400px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .s4-video {
+    width: 100% !important;
+  }
+  .s5__content {
+    padding: 0 !important;
+  }
+  .s5__content img {
+    width: 85%;
+  }
+  .s5__content {
+    flex-direction: column;
+  }
+  .s5__content-item {
+    flex-direction: column;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .section-6 {
+    height: 1000px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .s6__images {
+    width: 100%;
+    display: grid;
+    gap: 20px;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "img1 img2"
+      "img1 img2"
+      "img1 img5"
+      "img4 img5"
+      "img3 img5"
+      "img3 img6";
+  }
+
+  .s6_image4 {
+    margin: 0 !important;
+  }
+  .s6_image6 {
+    margin: 0 !important;
+  }
+
+  .s6__images img {
+    width: 220px !important;
+  }
+
+  .footer1 {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .footer__item {
+    flex-direction: column;
+  }
+  .footer2 {
+    font-size: 20px;
+    flex-direction: column;
+  }
+  .footer2__nav {
+    flex-direction: column;
+  }
+  .footer2__nav-item {
+    flex-direction: column;
+  }
+  .footer2__social {
+    margin-top: 40px;
+    flex-direction: column;
+  }
+  .footer2__social-item img {
+    width: 34px;
   }
 }
